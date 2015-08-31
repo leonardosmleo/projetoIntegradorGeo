@@ -53,13 +53,13 @@
     </body>
 
         <!-- SCRIPTS -->
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="../js/jquery-1.11.3.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
         
           <!-- Bootflat's JS files.-->
-        <script src="bootflat/js/icheck.min.js"></script>
-        <script src="bootflat/js/jquery.fs.selecter.min.js"></script>
-        <script src="bootflat/js/jquery.fs.stepper.min.js"></script>
+        <script src="../bootflat/js/icheck.min.js"></script>
+        <script src="../bootflat/js/jquery.fs.selecter.min.js"></script>
+        <script src="../bootflat/js/jquery.fs.stepper.min.js"></script>
 
 </html>
 	

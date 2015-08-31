@@ -13,48 +13,60 @@ Projeto integrador - sistema de geolocaliza��o de celulares
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="bootflat/css/bootflat.css">
         <link rel="stylesheet" href="css/logo-nav.css">
-		<link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
 
-		<style type="text/css" media="screen">
-			#body {
-			background-color: #da4453;
-			border-color: #da4453;
-		}	
-		</style>
+        <style type="text/css" media="screen">
+            #body {
+            background-color: #da4453;
+            border-color: #da4453;
+            }   
+
+            #logoEmpresa{
+                padding: 0.05cm 0.05cm 0.05cm 0.05cm;
+            }
+
+            #nomeEmpresa{
+                padding: 0.05cm 0.05cm 0.05cm 1cm;
+            }
+
+            #linkDeBusca{
+                padding: 0.05cm 0.05cm 0.05cm 5cm;
+            }
+
+            .fontebranca{
+                color: white;
+            }
+
+        </style>
 
 
         
     </head>
     <body>
-
-        <div class="col-md-12">
-            <nav class="navbar navbar-inverse" id="body">
-              <div class="container-fluid">
-                <div class="navbar-header">
-                 	<button type="button" class="navbar-toggle" data-toggle="collapse">
-                    	<span class="sr-only">Toggle navigation</span>
-                    	<span class="icon-bar"></span>
-                    	<span class="icon-bar"></span>
-                    	<span class="icon-bar"></span>
-                	</button>
-                <!--<a class="navbar-brand" href="#">Bootflat</a>-->
-                <div class="panel-heading" style="text-align: left" >
-                	<div class="row">
-                		<div class="col-xs-2">
-                			<img style="max-width: 50px" src="img/globo.png">
-                		</div>
-                		<div class="col-xs-3">
-                			<h5 style="color: white">Vzon</h5>	
-                		</div>
-                	</div>
-       			</div>
+            <nav class="navbar navbar-inverse" role="navigation" id="body">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="col-xs-2" id="logoEmpresa">
+                            <img style="max-width: 50px" src="img/globo.png">
+                        </div>
+                        <div class="col-xs-3" id="nomeEmpresa">
+                            <h5 style="color: white">Vzon</h5>  
+                        </div>
+                        <div class="com-xs-2" id="linkDeBusca">
+                            <p class="navbar-text navbar-right">
+                                <h5 ><a href="busca.php" style="color: white">Busca</a></h5>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <p class="navbar-text navbar-right fontebranca">
+                            <a class="navbar-link" style="color: white" href="login.php">Amanda C Rodrigues (Sair)</a>
+                        </p>
+                    </div>
                 </div>
-                <div class="collapse navbar-collapse" >
-                  <button type="button" class="btn btn-default navbar-btn" align="right">Sair</button>
-                </div>
-              </div>
             </nav>
         </div>
+
 
 
         <!-- SCRIPTS -->
@@ -68,9 +80,9 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 
     </body>
 </html>
-	
-	
-	
-	
-	
-	
+    
+    
+    
+    
+    
+    
