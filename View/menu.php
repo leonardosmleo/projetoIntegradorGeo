@@ -12,18 +12,21 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 
 	<link rel="stylesheet" href="../Libs/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../Libs/bootflat/css/bootflat.css">
-	<link rel="stylesheet" href="../Libs/css/logo-nav.css">
+	<!-- <link rel="stylesheet" href="../Libs/css/logo-nav.css"> -->
 	<link rel="stylesheet" href="../Libs/css/font-awesome.min.css">
 
 	<script src="../Libs/js/jquery-1.11.3.min.js"></script>
 
   	<!-- DataTables CSS -->
+  	<link href="../Libs/bootflat/css/bootflat.min.css" rel="stylesheet">
   	<link rel="stylesheet" type="text/css" href="../Libs/DataTables-1.10.7/media/css/jquery.dataTables.css">
+  	<link rel="stylesheet" type="text/css" href="../Libs/DataTables-1.10.7/media/js/jquery.dataTables.min.js">
+  	<link rel="stylesheet" type="text/css" href="../Libs/DataTables-1.10.7/media/js/jquery.js">
 
 	<style type="text/css" media="screen">
 		#body {
-			background-color: #da4453;
-			border-color: #da4453;
+			background-color: #3bafda;
+			border-color: #3bafda;
 		}	
 
 		.margemTopo{
@@ -48,7 +51,7 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 		}
 
 		.fundoDeTela{
-			color: #da4453; 
+			color: #3bafda; 
 			width: 100%;
 			font-size: 200px;
 			font-weight: 400;
