@@ -20,12 +20,10 @@
                     </select>
                 </div>
 
-                <div class="col-md-3">
-                    <label>Nº Distintivo:</label>
-                    <input type="text" class=" form-control" id="codigoDoUsuario" placeholder="Digite o número do seu distintivo aqui."/>
-                </div>
-                <div class="col-md-3">
 
+                 <div class="col-md-3">
+                    <label>Nome:</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Digite o seu nome aqui."/>
                 </div>
             </div>    
 
@@ -35,15 +33,7 @@
                     
                 </div>
 
-                <div class="col-md-3">
-                    <label>Nome:</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Digite o seu nome aqui."/>
-                </div>
-
-                <div class="col-md-3">
-                    <label>Sobrenome:</label>
-                    <input type="text" class="form-control" id="sobrenome" placeholder="Digite o seu sobrenome aqui."/>
-                </div>
+               
 
                 <div class="col-md-3">
                     
