@@ -22,8 +22,8 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 
 	<style type="text/css" media="screen">
 		#body {
-			background-color: #da4453;
-			border-color: #da4453;
+			background-color: #3bafda;
+			border-color: #3bafda;
 		}	
 
 		.margemTopo{
@@ -48,7 +48,7 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 		}
 
 		.fundoDeTela{
-			color: #da4453; 
+			color: #3bafda; 
 			width: 100%;
 			font-size: 200px;
 			font-weight: 400;

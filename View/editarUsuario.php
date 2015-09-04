@@ -121,17 +121,16 @@
         <hr>
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-3">
-                    
+                <div class="col-md-6">
+                 
                 </div>
-                <div class="col-md-3">
-                    <button type="button" class="btn btn-default btn-block" onclick="location.href='usuarios.php'">Cancelar</button>    
-                </div>
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-default btn-block">Salvar</button>    
-                </div>
-                <div class="com-md-3">
-                    
+                <div class="col-md-6">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-default btn-block" onclick="location.href='usuarios.php'">Cancelar</button>    
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn btn-default btn-block">Salvar</i></button>    
+                    </div>                    
                 </div>
             </div>
         </div>

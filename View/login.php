@@ -31,7 +31,7 @@
 <body >
 
 <div class="container" id="login">
-    <div class="panel panel-danger">
+    <div class="panel panel-primary">
       	<div class="panel-heading" style="text-align: center" >
          	<img style="max-width: 15%" src="../Libs/img/globo.png">
          	<h3>Vzon</h3>
