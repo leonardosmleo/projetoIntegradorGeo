@@ -9,8 +9,10 @@
 
         <link rel="stylesheet" href="../Libs/css/bootstrap.min.css">
         <link rel="stylesheet" href="../Libs/bootflat/css/bootflat.css">
-        <link rel="stylesheet" href="../Libs/css/logo-nav.css">
+        <!-- <link rel="stylesheet" href="../Libs/css/logo-nav.css"> -->
         <link rel="stylesheet" href="../Libs/css/font-awesome.min.css">
+
+        <script src="../Libs/js/jquery-1.11.3.min.js"></script>
         
         <style type="text/css" media="screen">
             #login {

@@ -73,7 +73,7 @@ function excluirUsuario(){
 }
 
     $(document).ready( function () {
-        $('#tabelaDeUsuarios').DataTable(             
+        $('#tabelaDeUsuarios').DataTable(
             {
                "aaSorting": [[ 2, "asc" ]],
                "oLanguage": { 
@@ -88,10 +88,11 @@ function excluirUsuario(){
                        "sPrevious": "&lt;", 
                        "sNext": "&gt;", 
                        "sLast": "Último" 
-                   }
-               },
-               "iDisplayLength" : 10,
-               });
+                  }
+              },
+              "iDisplayLength" : 10,
+            }
+        );
     });
 </script>
 
