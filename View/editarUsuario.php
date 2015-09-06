@@ -125,6 +125,8 @@
 
 </body>
 
+
+
 <?php
     include 'inferior.php';
 ?>
