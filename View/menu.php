@@ -59,6 +59,7 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 			margin-top: 3.5cm;	
 			opacity: 0.5;		
 		}
+
 	</style>
 
 	<nav class="navbar navbar-inverse" role="navigation" id="body">

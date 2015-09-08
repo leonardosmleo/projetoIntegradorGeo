@@ -112,10 +112,10 @@
                 </div>
                 <div class="col-md-6">
                     <div class="col-md-3">
-                        <button type="button" class="btn btn-default btn-block" onclick="location.href='usuarios.php'">Cancelar</button>    
+                        <button type="button" class="btn btn-primary btn-block" onclick="location.href='usuarios.php'">Cancelar</button>    
                     </div>
                     <div class="col-md-3">
-                        <button type="submit" class="btn btn-default btn-block">Salvar</i></button>    
+                        <button type="submit" class="btn btn-primary btn-block">Salvar</i></button>    
                     </div>                    
                 </div>
             </div>

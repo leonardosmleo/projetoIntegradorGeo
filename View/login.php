@@ -25,9 +25,13 @@
                 margin-left:-250px;                
             }
 
-            .btn{
-                float: right;
+            .entrar{
+                margin-left: 0px;
             }
+
+/*            .senha{
+                margin-right: 1px;
+            }*/
         </style>
     </head>
 <body >
@@ -36,7 +40,7 @@
     <div class="panel panel-primary">
       	<div class="panel-heading" style="text-align: center" >
          	<img style="max-width: 15%" src="../Libs/img/globo.png">
-         	<h3>Vzon</h3>
+         	<h3>VZON</h3>
         	<h4>Seja bem vindo!</h4>
         </div>
       <div class="panel-body">
@@ -45,8 +49,14 @@
         <label>Senha</label>
         <input type="password" class="form-control" name="senha" required>
         <br>
-        <a href="inicio.php"><button type="subimit" class="btn btn-default col-xs-6">Entrar</button></a>
-        <a href="esqueciMinhaSenha.php"><button type="subimit" class="btn btn-default col-xs-6">Esqueci minha senha</button></a>
+        <div>
+            <div>
+                <a href="esqueciMinhaSenha.php"><button type="subimit" class="senha btn btn-primary col-xs-6">Esqueci minha senha</button></a>
+            </div>
+            <div>
+                <a href="inicio.php"><button type="subimit" class="entrar btn btn-primary col-xs-6">Entrar</button></a>
+            </div>
+        </div>
       </div>
     </div>
 </div>

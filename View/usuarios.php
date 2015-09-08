@@ -6,7 +6,7 @@
     <div class="container">
         <label>
             <h1>
-                <button type="submit" class="btn btn-default" onclick="location.href= 'editarUsuario.php' ">
+                <button type="submit" class="btn btn-primary" onclick="location.href= 'editarUsuario.php' ">
                     <i class="glyphicon glyphicon-plus"> Adicionar</i>
                 </button>
             </h1>
@@ -34,10 +34,10 @@
                             <td>José da Silva</td>
                             <td>jose.silva@email.com</td>
                             <td nowrap>
-                                <button type="button" class="btn btn-default" onclick="location.href='editarUsuario.php'">
+                                <button type="button" class="btn btn-primary" onclick="location.href='editarUsuario.php'">
                                     <i class="glyphicon glyphicon-pencil"> Editar</i>
                                 </button>
-                                <button type="button" class="btn btn-default" onclick="excluirUsuario();">
+                                <button type="button" class="btn btn-primary" onclick="excluirUsuario();">
                                     <i class="glyphicon glyphicon-trash" > Excluir</i>
                                 </button>
                             </td>
@@ -47,23 +47,6 @@
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="confirmacaoDeExclusao">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    
-                </div>
-                <div class="modal-body">
-                    <p>Deseja realmente excluir o usuário?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Confirmar</button>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
 </body>
 

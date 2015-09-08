@@ -22,14 +22,6 @@
                 left:50%;
                 margin-left:-250px;                
             }
-
-            .btn-success{
-                float: right;
-            }
-
-            .btn-danger{
-                float: left;
-            }
         </style>
     </head>
     <body>
@@ -37,15 +29,15 @@
             <div class="panel panel-primary">
                 <div class="panel-heading" style="text-align: center">
                   <img style="max-width: 15%" src="../Libs/img/globo.png">
-                  <h3>Vzon</h3>
+                  <h3>VZON</h3>
                     <h4>Esqueceu a senha?</h4>
                 </div>
               <div class="panel-body">
                 <label>E-mail</label>
                 <input type="text" class="form-control" name="email" placeholder="Digite o e-mail cadastrado no sistema">
                 <br>
-                <a href="login.php"><button type="button" class="btn btn-default col-xs-6" >Voltar</button>
-                <a href="login.php"><button type="subimit" class="btn btn-default col-xs-6">Enviar</button>
+                <a href="login.php"><button type="button" class="btn btn-primary col-xs-6" >Voltar</button>
+                <a href="login.php"><button type="subimit" class="btn btn-primary col-xs-6">Enviar</button>
               </div>
             </div>
         </div>
