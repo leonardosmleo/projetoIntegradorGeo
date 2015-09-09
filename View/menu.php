@@ -10,23 +10,30 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 	<link rel="shortcut icon" href="../Libs/	img/favicon.png" type="image/x-icon">
 
 
-	<link rel="stylesheet" href="../Libs/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../Libs/bootflat/css/bootflat.css">
-	<!-- <link rel="stylesheet" href="../Libs/css/logo-nav.css"> -->
+	<link rel="stylesheet" href="../Libs/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../Libs/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="../Libs/css/font-awesome.min.css">
 
 	<script src="../Libs/js/jquery-1.11.3.min.js"></script>
 
+    <!-- bootstrap's JS files.-->
+    <script src="../Libs/bootstrap/js/icheck.min.js"></script>
+    <script src="../Libs/bootstrap/js/jquery.fs.selecter.min.js"></script>
+    <script src="../Libs/bootstrap/js/jquery.fs.stepper.min.js"></script>
+    <script src="../Libs/bootstrap/js/bootstrap.min.js"></script>
+
   	<!-- DataTables CSS -->
-  	<link href="../Libs/bootflat/css/bootflat.min.css" rel="stylesheet">
-  	<link rel="stylesheet" type="text/css" href="../Libs/DataTables-1.10.7/media/css/jquery.dataTables.css">
-  	<link rel="stylesheet" type="text/css" href="../Libs/DataTables-1.10.7/media/js/jquery.dataTables.min.js">
-  	<link rel="stylesheet" type="text/css" href="../Libs/DataTables-1.10.7/media/js/jquery.js">
+  	<link rel="stylesheet" type="text/css" href="../Libs/DataTables-1.10.9/css/jquery.dataTables.css">
+  	<!-- JQuery -->
+  	<script type="text/javascript" charset="utf8" src="../Libs/DataTables-1.10.9/js/jquery.min.js"></script>
+  	<!-- DataTables -->
+  	<script type="text/javascript" charset="utf8" src="../Libs/DataTables-1.10.9/js/jquery.dataTables.js"></script>
+
 
 	<style type="text/css" media="screen">
 		#body {
-			background-color: #3bafda;
-			border-color: #3bafda;
+			background-color: #2e6da4;
+			border-color: #2e6da4;
 		}	
 
 		.margemTopo{
@@ -51,7 +58,7 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 		}
 
 		.fundoDeTela{
-			color: #3bafda; 
+			color: #2e6da4; 
 			width: 100%;
 			font-size: 200px;
 			font-weight: 400;
