@@ -2,6 +2,8 @@
         <!-- SCRIPTS -->
         
         <script src="../Libs/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" language= "javascript" src="js/jquery.min.js"></script>
         
         <!-- Bootflat's JS files.-->
         <script src="../Libs/bootstrapsourc/js/icheck.min.js"></script>
