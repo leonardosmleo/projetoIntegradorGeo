@@ -1,41 +1,17 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-		
-        
-        
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="bootflat/css/bootflat.css">
-        <link rel="stylesheet" href="css/logo-nav.css">
-    </head>
+<?php
+    include 'menu.php';
+?>
     <body>
-	<?php include 'menu.php';?>
-	
-	
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
 			</div>
-			
-			
-			<div class="col-md-6">
-				<div class="form-search search-only" style="width: 98%">
-                  <i class="search-icon glyphicon glyphicon-search"></i>
-                  <input type="text" class="form-control search-query">
-                </div>		
-			</div>
 		</div>		
 		
-				
-				
         <div class="row" style="margin-top: 1%">
             <div class="col-md-12">
-                <table class="table table-striped table-hover">
+                <table id="tabelaDeRelatorios" class="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -107,15 +83,31 @@
               </div>
             </div>
         </div>
-        <!-- SCRIPTS -->
-        <script src="js/jquery-1.11.3.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        
-          <!-- Bootflat's JS files.-->
-        <script src="bootflat/js/icheck.min.js"></script>
-        <script src="bootflat/js/jquery.fs.selecter.min.js"></script>
-        <script src="bootflat/js/jquery.fs.stepper.min.js"></script>
+<script type="text/javascript">
 
+    $(document).ready( function () {
+        $('#tabelaDeRelatorios').DataTable(
+            {
+               "aaSorting": [[ 2, "asc" ]],
+               "oLanguage": { 
+                   "sLengthMenu": "Mostrar _MENU_ itens por página", 
+                   "sZeroRecords": "<i>Não há itens neste modo de exibição.</i>",
+                   "sInfo": "_TOTAL_ itens encontrados (exibindo de _START_ a _END_)", 
+                   "sInfoEmpty": "Não há itens para o filtro selecionado.", 
+                   "sInfoFiltered": " - total de _MAX_ registros", 
+                   "sSearch": "<b>Filtrar: </b>",
+                   "oPaginate": { 
+                       "sFirst": "Início", 
+                       "sPrevious": "&lt;", 
+                       "sNext": "&gt;", 
+                       "sLast": "Último" 
+                  }
+              },
+              "iDisplayLength" : 10,
+            }
+        );
+    });
+</script>
     </body>
 </html>
 	

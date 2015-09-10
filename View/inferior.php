@@ -1,4 +1,5 @@
 </div>
+<<<<<<< HEAD
         <!-- SCRIPTS -->
         
         <script src="../Libs/js/bootstrap.min.js"></script>
@@ -18,5 +19,7 @@
         <script type="text/javascript" url="//cdn.datatables.net/plug-ins/1.10.7/integration/bootstrap/3/dataTables.bootstrap.js"></script>
         <script type="text/javascript" src="../Libs/js/dist/jquery.validate.js"></script>
 
+=======
+>>>>>>> c661b9b923307d7ca0124f225d852ba4604bdf8a
     </body>
 </html>
