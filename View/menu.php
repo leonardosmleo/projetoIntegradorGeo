@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-Projeto integrador - sistema de geolocaliza��o de celulares
+Projeto integrador - sistema de geolocalização de celulares
 -->
 <html>
 <head>
@@ -15,7 +15,9 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 	<link rel="stylesheet" href="../Libs/css/font-awesome.min.css">
 
 	<script src="../Libs/js/jquery-1.11.3.min.js"></script>
-
+	
+	<link rel="stylesheet" href="../Libs/css/bootstrap-select.css">
+	
     <!-- bootstrap's JS files.-->
     <script src="../Libs/bootstrap/js/icheck.min.js"></script>
     <script src="../Libs/bootstrap/js/jquery.fs.selecter.min.js"></script>
@@ -28,7 +30,8 @@ Projeto integrador - sistema de geolocaliza��o de celulares
   	<script type="text/javascript" charset="utf8" src="../Libs/DataTables-1.10.9/js/jquery.min.js"></script>
   	<!-- DataTables -->
   	<script type="text/javascript" charset="utf8" src="../Libs/DataTables-1.10.9/js/jquery.dataTables.js"></script>
-
+	
+	<script src="../Libs/js/bootstrap-select.js"></script>
 
 	<style type="text/css" media="screen">
 		#body {

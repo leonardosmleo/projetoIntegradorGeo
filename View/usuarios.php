@@ -1,12 +1,15 @@
 <?php
-    include 'menu.php';
+  include 'menu.php';
+    include '../Model/Usuario.php';
+    $usuarioObj = new Usuario();
+    $usuarios = $usuarioObj->listar();
 ?>
 
 <body>
     <div class="container">
         <label>
             <h1>
-                <button type="submit" class="btn btn-primary" onclick="location.href= 'editarUsuario.php' ">
+                <button type="submit" class="btn btn-primary" onclick="location.href= 'adicionarUsuario.php' ">
                     <i class="glyphicon glyphicon-plus"> Adicionar</i>
                 </button>
             </h1>
@@ -17,31 +20,44 @@
                     <thead>
                         <tr role="row">
                             <th style="width:  5%;">Status</th>
-                            <th style="width: 10%;">Código</th>
+                            <th style="width: 5%;">Código</th>
                             <th style="width: 10%;">Patente</th>
                             <th style="width: 45%;">Nome</th>
                             <th style="width: 20%;">E-mail</th>
+                            <th style="width: 5%;">Ativo</th>
                             <th style="width: 10%;">Opções</th>
 
                             
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        //Verifica se há usuários cadastros
+                        if(mysql_num_rows($usuarios)>0){
+                          for($l=0; $l<mysql_num_rows($usuarios); $l++){
+                        ?>
                         <tr role="row" class="odd" align="center">
                             <td><i class="glyphicon glyphicon-user" ></i></td>
-                            <td class="sorting_1">00001</td>
-                            <td>Capitão</td>
-                            <td>José da Silva</td>
-                            <td>jose.silva@email.com</td>
+                            <td class="sorting_1"><?=$idUsuario = mysql_result($usuarios, $l, 'id');?></td>
+                            <td><?=mysql_result($usuarios, $l, 'patente');?></td>
+                            <td><?=mysql_result($usuarios, $l, 'nome');?></td>
+                            <td><?=mysql_result($usuarios, $l, 'email');?></td>
+                            <td><?=(mysql_result($usuarios, $l, 'ativo')) ? "SIM" : "NÃO";?></td>
                             <td nowrap>
-                                <button type="button" class="btn btn-primary" onclick="location.href='editarUsuario.php'">
+                                <button type="button" class="btn btn-primary" onclick="location.href='editarUsuario.php?id=<?=$idUsuario?>'">
                                     <i class="glyphicon glyphicon-pencil"> Editar</i>
                                 </button>
-                                <button type="button" class="btn btn-primary" onclick="excluirUsuario();">
+                                <button type="button" class="btn btn-primary" onclick="excluirUsuario(<?php echo $idUsuario; ?>);">
                                     <i class="glyphicon glyphicon-trash" > Excluir</i>
                                 </button>
                             </td>
                         </tr>
+                        <?php 
+                          }//Fim do Foreach
+                        }else{ //Não há usuários cadastros
+                        ?>
+                        Não encontramos nenhum registro cadastado em nosso sistema.
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>
@@ -52,10 +68,48 @@
 
 <script type="text/javascript">
 
-function excluirUsuario(){
+function excluirUsuario(idUsuario){
     //codigo de exclusao aqui
-    alert("Deseja realmente excluir este usuáario?");
+    var name = confirm("Deseja realmente excluir este usuário?");
+    if(name==true){
+      $.ajax({
+      url: '../Controller/controllerUsuario.php',
+      type: 'POST',
+      dataType: 'json',
+      data: {idUsuario:idUsuario,
+           action:'excluir'},
+      success: function(retorno){
+        alert(retorno.msg);
+      },
+      error: function(){
+        alert(retorno.msg);
+      }
+    });
+    }
 }
+  
+
+    function buscarUsuario(idUsuario){
+
+    $.ajax({
+      url: 'Controller/controllerUsuario.php',
+      type: 'POST',
+      dataType: 'json',
+      data: {idUsuario:idUsuario,
+           action:'buscar'},
+      success: function(retorno){
+        $('#action').val('alterar');
+        $('#idUsuario').val(retorno.idUsuario);
+        $('#nomeUsuario').val(retorno.nome);
+        $('#cadastroProfessor').modal();
+      },
+      error: function(){
+        alert("Falha ao buscar dados!");
+      }
+    });
+  }
+
+
 
     $(document).ready( function () {
         $('#tabelaDeUsuarios').DataTable(
@@ -85,6 +139,6 @@ function excluirUsuario(){
     include 'inferior.php';
 ?>
 
-	
-	
-	
+  
+  
+  

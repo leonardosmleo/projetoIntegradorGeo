@@ -1,28 +1,71 @@
 <?php 
     include 'menu.php';
+
+    require '../Model/Usuario.php';
+    require '../Model/Patente.php';
+    require '../Model/Estado.php';
+    require '../Model/Instituicao.php';
+
+    $idUsuario = $_GET["id"];
+    if(!(int)$idUsuario){
+        //Redireciona
+
+        //Morre
+        die("ID inválido.");
+    }
+
+    //Instancia o objeto Usuário
+    $usuarioObj = new Usuario();
+    $dadosUsuario = mysql_fetch_array($usuarioObj->buscarUsuario($idUsuario));
+
+    //Instancia o objeto Patente
+    $patenteObj = new Patente();
+    $patentes = $patenteObj->listar();
+
+    //Instancia o objeto Estado
+    $estadoObj = new Estado();
+    $estados = $estadoObj->listar();
+
+    //Instancia o objeto Instituicao
+    $instituicaoObj = new Instituicao();
+    $instituicoes = $instituicaoObj->listar();
+
 ?>
 
 <!DOCTYPE html>
 
     <body>
-        <form>
+        <form name="editarUsuario" action="../Controller/controllerUsuario.php" method="POST" >
+        <input type="hidden" name="action" id="action" value="alterarUsuario" />
+        <input type="hidden" name="id" value="<?=$idUsuario?>"
             <div class="row">
                 <div class="col-md-3">           
 
                 </div>
                 <div class="col-md-3">
-                    <label>Patente:</label>
-                    <select class="form-control">
-                        <option>Soldado</option>                        
-                        <option>Delegado</option>
-                        <option>Capitão</option>
-                        <option>Tenente</option>
-                    </select>
+                    <label>Patente</label>
+                        <?php 
+                        //Se existirem patentes, exibe
+                        if($patentes){ ?>
+                          <select class="selectpicker form-control" name="patente" id="patente">
+                            <optgroup label="militar">
+                            <?php
+                            for($l=0; $l<mysql_num_rows($patentes); $l++){
+                            ?>
+                              <option value="<?php echo $idPatente = mysql_result($patentes, $l, 'id');?>" <?php if($dadosUsuario["id_patente"]==$idPatente){ ?>selected<?php } ?>><?php echo mysql_result($patentes, $l, 'nome');?></option>
+                            <?php
+                            }
+                            ?>
+                            </optgroup>
+                          </select>
+                        <?php }else{ //Não há patentes, exibe mensagem ?>
+                        Não há patentes cadastradas. Você precisa primeiro cadastrar uma patente.
+                        <?php } ?>
                 </div>
 
                  <div class="col-md-3">
                     <label>Nome:</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Digite o seu nome aqui."/>
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o seu nome aqui." value="<?php echo $dadosUsuario["nome"]; ?>"/>
                 </div>
             </div>    
 
@@ -41,42 +84,43 @@
                     
                 </div>
 
-                <div class="col-md-3">
-                    <label>Instituição:</label>
-                    <input type="text" class="form-control" id="instituicao" placeholder="Digite o nome da instituição aqui. Ex.: GAECO"/>
+                 <div class="col-md-3">
+                    <label>Instituição</label>
+                        <?php 
+                        //Se existirem patentes, exibe
+                        if($instituicoes){ ?>
+                          <select class="selectpicker form-control" name="instituicao" id="instituicao">
+                            <optgroup label="instituicao">
+                            <?php
+                            for($l=0; $l<mysql_num_rows($instituicoes); $l++){
+                            ?>
+                              <option value="<?=$idInstituicao = mysql_result($instituicoes, $l, 'id');?>" <?php if($dadosUsuario["id_instituicao"]==$idInstituicao){ ?>selected<?php } ?>><?php echo mysql_result($instituicoes, $l, 'nome');?></option>
+                            <?php
+                            }
+                            ?>
+                            </optgroup>
+                          </select>
+                        <?php }else{ //Não há instituições, exibe mensagem ?>
+                        Não há instituições cadastradas. Você precisa primeiro cadastrar uma instituição.
+                        <?php } ?>
                 </div>
+
 
                 <div class="col-md-3">
                      <label>UF:</label>
-                    <select class="form-control">
-                        <option>AC - Acre</option>
-                        <option>AL - Alagoas</option>
-                        <option>AP - Amapá</option>
-                        <option>AM - Amazonas</option>
-                        <option>BA - Bahia</option>
-                        <option>CE - Ceará</option>
-                        <option>DF - Distrito Federal</option>
-                        <option>ES - Espírito Santo</option>
-                        <option>GO - Goiás</option>
-                        <option>MA - Maranhão</option>
-                        <option>MT - Mato Grosso</option>
-                        <option>MS - Mato Grosso do Sul</option>
-                        <option>MG - Minas Gerais</option>
-                        <option>PA - Pará</option>
-                        <option>PB - Paraíba</option>
-                        <option>PR - Paraná</option>
-                        <option>PE - Pernambuco</option>
-                        <option>PI - Piauí</option>
-                        <option>RJ - Rio de Janeiro</option>
-                        <option>RN - Rio Grande do Norte</option>
-                        <option>RS - Rio Grande do Sul</option>
-                        <option>RO - Rondônia</option>
-                        <option>RR - Roraima</option>
-                        <option>SC - Santa Catarina</option>
-                        <option>SP - São Paulo</option>
-                        <option>SE - Sergipe</option>
-                        <option>TO - Tocantins</option>
+                    <?php
+                    if(mysql_num_rows($estados)>0){
+                    ?>
+                    <select class="form-control" name="estado" id="estado">
+                        <?php
+                        for($l=0; $l<mysql_num_rows($estados); $l++){
+                        ?>
+                        <option value="<?=$idEstado = mysql_result($estados, $l, 'id')?>" <?php if($dadosUsuario["id_estado"]==$idEstado){ ?>selected<?php } ?>><?=mysql_result($estados, $l, 'nome')?></option>
+                        <?php } ?>
                     </select>
+                    <?php }else{ //Não há estados cadastrados ?>
+                    Ops... parece que não há estados cadastrados. Você precisa primeiro cadastrar um Estado.
+                    <?php } ?>
                 </div>
                 <div class="col-md-3">
                     
@@ -90,11 +134,28 @@
                 </div>
                 <div class="col-md-3">
                     <label>Email:</label>
-                    <input type="text" class="form-control" id="email" placeholder="Digite o seu e-mail aqui."/>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Digite o seu e-mail aqui." value="<?php echo $dadosUsuario["email"]; ?>"/>
                 </div>
                 <div class="col-md-3">
-                     <label>Confirme seu email:</label>
-                     <input type="email" class="form-control" id="confirmacaoEmail" placeholder="Digite o seu e-mail aqui."/>
+                     <label>Entre sua senha:</label>
+                     <input type="text" class="form-control" name="senha" id="senha" placeholder="Digite a sua senha aqui ou deixe-a em branco."/>
+                </div>
+                <div class="col-md-3">
+                    
+                </div>           
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                
+                </div>
+                <div class="col-md-3">
+                    <label>Administrador:</label>
+                    <input type="checkbox" class="form-control" name="administrador" id="administrador" <?php if($dadosUsuario["permissao"]==1){ ?>checked<?php } ?> value=1/>
+                </div>
+                <div class="col-md-3">
+                     <label>Ativo:</label>
+                     <input type="checkbox" class="form-control" name="ativo" id="ativo" <?php if($dadosUsuario["ativo"]){ ?>checked<?php } ?> value=1/>
                 </div>
                 <div class="col-md-3">
                     

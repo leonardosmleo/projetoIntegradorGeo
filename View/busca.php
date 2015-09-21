@@ -1,10 +1,15 @@
 <?php
 include 'menu.php';
-?>	
+?>
+
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+
 <style type="text/css">
-  .map{
+  #map{
     background-color: #ffaaff;
     width:  100%;
+	height: 85%;
     position: absolute;
   }
 
@@ -21,123 +26,198 @@ include 'menu.php';
     margin-bottom: -4000px;
   }
 </style>
-
-<script type="text/javascript">
-  var statusJanela= 1;
-
-  redimencionaMapa();
-  function redimencionaMapa(){
-    $(document).ready(function() {
-      $('.map').css('height',$(window).height()*0.87);
-      $('.map').css('width',$(window).width());
-    });
-  }
-  $(window).resize(function() {
-   redimencionaMapa();
- });
+</head>
 
 
-  function esconderCampos(){
+<body>
+<!--
+<form name="myForm" action="" method="post">
+    Latitude: <input type="text" id="lat" name="lat" value="-23.4388435" /> 
+    Longitude: <input type="text" id="lng" name="lng" value="-51.9169781" /> 
+    <input type="button" id="submitBtn" value="Adicionar" class="btn" /> 
+    <div id="googleMap" style="width: 100%;height:85%;position: absolute"></div> 
+</form>
+-->
+<div id="googleMap" style="width: 100%;height:85%;position: absolute"></div> 
 
-    if(statusJanela == 1){
-      $('.camposCoorndenadas').hide();
-      $('#botaoController').removeClass('glyphicon-chevron-up');
-      $('#botaoController').addClass('glyphicon-chevron-down');
-      //janela escondida
-      statusJanela = 0;
-    }else if(statusJanela == 0){
-      $('.camposCoorndenadas').show();
-      $('#botaoController').removeClass('glyphicon-chevron-down');
-      $('#botaoController').addClass('glyphicon-chevron-up');
-      //janela escondida
-      statusJanela = 1;
-    }
-    
-  }
+<!--<div id="map" >
 
-</script>
+</div>-->
 
-<div class="map" >
 
+		
+<!--
+		<script>
+
+		var map;
+		function initMap() {
+		  var myLatLng = {lat: -25.363, lng: 131.044};
+
+		  var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 4,
+			center: myLatLng
+		  });
+
+		  var marker = new google.maps.Marker({
+			position: myLatLng,
+			map: map,
+			title: 'Hello World!'
+		  });
+		}
+		</script>	
+			
+			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ7s4FRHQOClsYvGJi9tw4EWP16RYNwYk&callback=initMap" async defer>
+			</script> -->
+			
+
+
+
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="position: absolute; width: 250px; margin: 1% auto; left: 1%">
+  <i class="fa fa-map-marker"></i> Procurar ERB's
+</button>
+<div class="collapse in" id="collapseExample">
+  <div class="well">
+   <div class="modal-dialog" style="position: absolute; width: 450px; margin: 3% auto; left: 1%">
+                  <div class="modal-content">
+				  <form name="myForm" action="" method="post">
+                    <div class="modal-header">                      
+                      
+                    </div>
+                    <div class="modal-body">
+					
+						<div class="row">
+								<div class="col-md-6">
+								  
+									<label for="exampleInputEmail1">Longitude</label>
+									<input class="form-control" placeholder="Longitude" type="text" id="lng" name="lng" value="-51.9169781" > <!-- -->
+								  
+							  </div>
+							  <div class="col-md-6">
+							   
+									<label for="exampleInputEmail1">Latitude</label>
+									<input class="form-control" placeholder="Latitude" type="text" id="lat" name="lat" value="-23.4388435"> <!--  -->
+								  
+								 </div>
+						  </div>
+						<hr>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="exampleInputEmail1">Azimute</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Azimute">
+							</div>
+							<div class="col-md-6">
+								<label for="exampleInputEmail1">Raio (m)</label>
+								<input type="text" maxlength="10" class="form-control" id="rad" name="rad" value="1000">
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-md-6">
+								<label for="exampleInputEmail1">Nome da ERB</label>
+								<input type="text" class="form-control" id="nome" placeholder="Nome da ERB" required>
+							</div>							
+						</div>		
+                        
+                         
+                    </div>
+                    <div class="modal-footer">                      
+                      
+                      <button type="button" class="btn btn-danger"><i class="fa fa-map"></i> Rotas de fuga</button>
+					  <button type="button" class="btn btn-default" onclick="deleteMarkers()"><i class="fa fa-map"></i> Limpar ERB's</button>
+                      <button style="margin-left: 1%; float: right"  type="button" class="btn btn-success"  id="submitBtn" value="Adicionar"><i class="fa fa-plus"></i> Inserir ERB</button>
+                    </div>
+					</form>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+  </div>
 </div>
 
-<div class="col-md-3 controllerMap thumbnail">
-  <div class="" id="dados">
-    <div class="row">
-      <div class="col-md-11">
-        <big><i id="botaoController" class="glyphicon glyphicon-chevron-up" onclick="esconderCampos()"></i><i> Coordenadas</i></big> 
-       
-      </div>
-      <div class="camposCoorndenadas">
-      <div class="col-md-12">
-       <hr>
-       </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="latitudeForm">Latitude</label>
-            <input type="email" class="form-control" id="latitudeForm" name="latitudeForm" placeholder="Latitude">
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="longitudeForm">Longitude</label>
-            <input type="email" class="form-control" id="longitudeForm" name="longitudeForm" placeholder="Longitude">
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="azimuteForm">Azimute</label>
-            <input type="email" class="form-control" id="azimuteForm" name="azimuteForm" placeholder="Azimute">
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="raioForm">Raio</label>
-            <input type="number" maxlength="3" class="form-control" id="raioForm" name="raioForm" placeholder="Raio">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="" id="action">
-            <a onclick="adicionarTags()" class="btn">Adicionar</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <hr>
-
-  <div class="row">
-    <div class="col-md-12">
-      <div id="infoErb" class="infoErb">
 
 
-      </div>
-    </div>
-  </div>
-</div>
+<script>
 
-<script type="text/javascript">
-  function adicionarTags(){
-    $('.infoErb').append("<div class='alert alert-warning alert-dismissible' role='alert'><button onclick='excluirTag();' type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>Longitude:</strong> "+$('#latitudeForm').val()+"  <strong>Longitude:</strong> "+$('#longitudeForm').val()+"<br><strong>Azimute:</strong> "+$('#azimuteForm').val()+"  <strong>Raio:</strong> "+$('#raioForm').val()+"</div>");
-    $('#latitudeForm').val("");
-    $('#longitudeForm').val("");
-    $('#azimuteForm').val("");
-    $('#raioForm').val("");
+var map;
+var markers = new Array();
+//var rad_tam = parseFloat(document.getElementById("rad").value);
 
-    //inserir códigos a partir daqui. Porque se deletar o que esta escrito a cima, você deletará os itens que for adicionando
- }
+function initialize() { 
+	nome = "Default";
+	
+	var lat=document.getElementById('lat').value;
+	var lng=document.getElementById('lng').value;
+	
+	var myCenter = new google.maps.LatLng(lat, lng);
+	
+    var mapProp = { 
+        center: myCenter, 
+        zoom: 13, 
+		mapTypeControl: false,
+        streetViewControl: false,
+        panControl: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP 
+    };
+    map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
- function excluirTag(){
-  // colocar aqui a programação da exclusão do mapa.
-  //Essa função pode ser totalmente alterada
-  alert('Deseja realmente excluir esta ERB?');
- }
+	createMarker(lat, lng);
+}
 
-</script>
+function createMarker(lat, lng) {
+	var myCenter = new google.maps.LatLng(lat, lng);
+	
+	var image = '../Libs/img/antena.png';
+	var marker = new google.maps.Marker({ 
+		position:myCenter, 
+		animation:google.maps.Animation.DROP,
+		icon: image
+	});
+	
+    marker.setMap(map);
+	markers.push(marker);
+	
+	
+	var circle = new google.maps.Circle({
+            map: map,
+            clickable: false,
+            // metres
+            radius: 1000,
+            fillColor: '#4fc1e9',
+            fillOpacity: .6,
+            strokeColor: '#313131',
+            strokeOpacity: .4, 
+            strokeWeight: .8
+        });
+	  
+	circle.bindTo('center', marker, 'position');
+	 
+	var nome = document.getElementById("nome").value;
+	var infowindow = new google.maps.InfoWindow({
+		content: nome
+	});
+	  
+	  marker.addListener('click', function() {
+		infowindow.open(map, marker);
+	  });
+}
+	  
+
+
+
+
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+
+function update() {
+    lat=document.getElementById('lat').value;
+    lng=document.getElementById('lng').value;
+	
+	createMarker(lat, lng);
+    return false;
+}
+document.getElementById('submitBtn').addEventListener('click', update);
+
+google.maps.event.addDomListener(window, 'load', initialize);</script>		
 
 <?php
 include 'inferior.php';
