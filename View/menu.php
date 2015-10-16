@@ -43,8 +43,8 @@ Projeto integrador - sistema de geolocalização de celulares
 			margin-top: 0.05cm;
 		}
 
-		.fontebranca{
-			color: white;
+		.glyphicon{
+			font-family: arial !important;
 		}
 		#imgLogoEsquerda{
 			margin-right: 5px;
@@ -88,7 +88,7 @@ Projeto integrador - sistema de geolocalização de celulares
 				<ul class="nav navbar-nav">
 					<li><a href="../View/inicio.php">Home</a></li>
 					<li><a href="../View/busca.php">Busca</a></li>
-					<li><a href="../View/relatorios.php">Relatórios</a></li>
+					<!--<li><a href="../View/relatorios.php">Relatórios</a></li>-->
 					<li><a href="../View/usuarios.php">Usuários</a></li>
 				</ul>
 
