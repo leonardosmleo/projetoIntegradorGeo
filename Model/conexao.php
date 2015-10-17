@@ -3,9 +3,9 @@
 	error_reporting(E_ALL & ~E_DEPRECATED);
 
 	$servidor = 'localhost';
-	$banco = 'free_claudio';
+	$banco = 'projetointegradorgeo';
 	$usuario = 'root';
-	$senha = 'root'; // COLOQUE A SENHA QUE QUISER AQUI.
+	$senha = '';
 	$link = mysql_connect($servidor,$usuario,$senha);
 	$db = mysql_select_db($banco,$link);
 
