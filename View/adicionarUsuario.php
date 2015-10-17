@@ -124,8 +124,8 @@
                     <input type="text" class="form-control" name="email" id="email" placeholder="Digite o seu e-mail aqui."/>
                 </div>
                 <div class="col-md-3">
-                     <label>Senha:</label>
-                     <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite a sua senha aqui."/>
+                     <label>Entre sua senha:</label>
+                     <input type="text" class="form-control" name="senha" id="senha" placeholder="Digite a sua senha aqui."/>
                 </div>
                 <div class="col-md-3">
                     

@@ -54,8 +54,10 @@
                         </tr>
                         <?php 
                           }//Fim do Foreach
-                        }
+                        }else{ //Não há usuários cadastros
                         ?>
+                        Não encontramos nenhum registro cadastado em nosso sistema.
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

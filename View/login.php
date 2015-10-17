@@ -49,12 +49,12 @@
         <label>Senha</label>
         <input type="password" class="form-control" name="senha" required>
         <br>
-        <div class="row">
-            <div class="col-md-6">
-                <a href="esqueciMinhaSenha.php"><button type="subimit" class="senha btn btn-primary col-xs-12">Esqueci minha senha</button></a>
+        <div>
+            <div>
+                <a href="esqueciMinhaSenha.php"><button type="subimit" class="senha btn btn-primary col-xs-6">Esqueci minha senha</button></a>
             </div>
-            <div class="col-md-6">
-                <a href="inicio.php"><button type="subimit" class="entrar btn btn-primary col-xs-12">Entrar</button></a>
+            <div>
+                <a href="inicio.php"><button type="subimit" class="entrar btn btn-primary col-xs-6">Entrar</button></a>
             </div>
         </div>
       </div>
@@ -66,27 +66,6 @@
 <?php
     include 'inferior.php';
 ?>
-
-<script type="text/javascript">
-    
-    $.ajax({
-        url: '../Controller/controllerLogin.php',
-        type: 'POST',
-        dataType: 'json',
-        data: {action: 'validarUsuario', idUsuario: 'idUsuario', senha: 'senha'},
-    })
-    .done(function() {
-        console.log("success");
-    })
-    .fail(function() {
-        console.log("error");
-    })
-    .always(function() {
-        console.log("complete");
-    });
-    
-
-</script>
 	
 	
 	

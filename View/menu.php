@@ -2,7 +2,7 @@
 <!--
 Projeto integrador - sistema de geolocalização de celulares
 -->
-<html>
+<html style="overflow-x: hidden;">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,8 +43,8 @@ Projeto integrador - sistema de geolocalização de celulares
 			margin-top: 0.05cm;
 		}
 
-		.glyphicon{
-			font-family: arial !important;
+		.fontebranca{
+			color: white;
 		}
 		#imgLogoEsquerda{
 			margin-right: 5px;
@@ -88,7 +88,7 @@ Projeto integrador - sistema de geolocalização de celulares
 				<ul class="nav navbar-nav">
 					<li><a href="../View/inicio.php">Home</a></li>
 					<li><a href="../View/busca.php">Busca</a></li>
-					<!--<li><a href="../View/relatorios.php">Relatórios</a></li>-->
+					<li><a href="../View/relatoriosPrint.php">Relatórios</a></li>
 					<li><a href="../View/usuarios.php">Usuários</a></li>
 				</ul>
 
