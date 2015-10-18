@@ -89,7 +89,7 @@ Projeto integrador - sistema de geolocalização de celulares
 					<li><a href="../View/inicio.php">Home</a></li>
 					<li><a href="../View/relatoriosPrint.php">Relatórios</a></li>	
 					<li><a href="../View/busca.php">Busca</a></li>					
-					<li><a href="../View/usuarios.php">Usuários</a></li>
+					<li><a href="../Controller/controllerUsuario.php">Usuários</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

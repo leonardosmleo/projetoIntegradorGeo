@@ -6,7 +6,7 @@
     <div class="container">
         <label>
             <h1>
-                <button type="submit" class="btn btn-primary" onclick="location.href= 'adicionarUsuario.php' ">
+                <button type="submit" class="btn btn-primary" onclick="location.href= '../Controller/controllerUsuario.php?action=inserirUsuario' ">
                     <i class="glyphicon glyphicon-plus"> Adicionar</i>
                 </button>
             </h1>
@@ -27,30 +27,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        //Verifica se há usuários cadastros
-                        /*if(mysql_num_rows($usuarios)>0){
-                          for($l=0; $l<mysql_num_rows($usuarios); $l++){*/
-                        ?>
-                        <tr role="row" class="odd" align="center">
-                            <td><i class="glyphicon glyphicon-user" ></i></td>
-                            <td class="sorting_1"><?=$idUsuario = mysql_result($usuarios, $l, 'id');?></td>
-                            <td><?=mysql_result($usuarios, $l, 'patente');?></td>
-                            <td><?=mysql_result($usuarios, $l, 'nome');?></td>
-                            <td><?=mysql_result($usuarios, $l, 'email');?></td>
-                            <td><?=(mysql_result($usuarios, $l, 'ativo')) ? "SIM" : "NÃO";?></td>
-                            <td nowrap>
-                                <button type="button" class="btn btn-primary" onclick="location.href='editarUsuario.php?id=<?=$idUsuario?>'">
-                                    <i class="glyphicon glyphicon-pencil"> Editar</i>
-                                </button>
-                                <button type="button" class="btn btn-primary" onclick="excluirUsuario(<?php echo $idUsuario; ?>);">
-                                    <i class="glyphicon glyphicon-trash" > Excluir</i>
-                                </button>
-                            </td>
-                        </tr>
                         <?php 
-                          }//Fim do Foreach
-                        }?>
+                          foreach ($listaDeUsuario as $usuario) {
+                            $idUsuario = $usuario['id'];
+                            ?>
+                              <tr role="row" class="odd" align="center">
+                                    <td><i class="glyphicon glyphicon-user" ></i></td>
+                                    <td class="sorting_1"><?=$usuario['id']?></td>
+                                    <td><?=$usuario['id_patente']?></td>
+                                    <td><?=$usuario['rg']?></td>
+                                    <td><?=$usuario['nome']?></td>
+                                    <td><?=$usuario['email']?></td>
+                                    <td><?=$usuario['ativo']?></td>
+                                    <td nowrap>
+                                        <button type="button" class="btn btn-primary" onclick="location.href='../Controller/controllerUsuario.php?action=editarUsuario&idUsuario=<?=$idUsuario?>'">
+                                            <i class="glyphicon glyphicon-pencil"> Editar</i>
+                                        </button>
+                                        <button type="button" class="btn btn-primary" onclick="location.href='../Controller/controllerUsuario.php?action=excluirUsuario&idUsuario=<?=$idUsuario?>'">
+                                            <i class="glyphicon glyphicon-trash" > Excluir</i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            <?php
+                          }
+                         ?>
                     </tbody>
                 </table>
             </div>

@@ -6,26 +6,45 @@
 
 		function __construct(){}
 
-		public function inserir($rg, $id_patente, $id_instituicao, $id_estado, $nome, $emai, $senha, $permissao, $ativo){
-			
-			$sqlInserir = "INSERT INTO usuario(	id_patente, 
+		public function salvarUsuario($idUsuario, $nome, $rg, $patente, $instituicao, $estado, $email, $senha, $administrador, $ativo){
+
+			if($idUsuario){
+
+					$sqlUpdate = "UPDATE USUARIO SET
+								nome = '{$nome}',
+								rg = '{$rg}',
+								id_patente = {$patente},
+								id_instituicao = {$instituicao},
+								id_estado = '{$estado}',
+								email = '{$email}',
+								senha = '{$senha}',
+								permissao = {$administrador},
+								ativo= {$ativo} where id = {$idUsuario}";
+					mysql_query($sqlUpdate);
+
+			}else{
+						$sqlInserir = "INSERT INTO usuario(	id_patente, 
 												id_instituicao, 
-												id_estado, 
+												id_estado,
+												rg, 
 												nome, 
 												email, 
 												senha, 
 												permissao, 
 												ativo
-									) VALUES (	{$dados['id_patente']}, 
-												{$dados['id_instituicao']}, 
-												{$dados['id_estado']}, 
-												'{$dados['nome']}', 
-												'{$dados['email']}', 
-												'{$dados['senha']}', 
-												{$dados['permissao']}, 
-												{$dados['ativo']} )";
-
-			mysql_query($sqlInserir);
+									) VALUES (
+											{$patente},
+											{$instituicao},
+											'{$estado}',
+											'{$rg}',
+											'{$nome}',
+											'{$email}',
+											'{$senha}',
+											{$administrador},
+											{$ativo} )";
+						mysql_query($sqlInserir);
+			}
+			return true;
 		}
 
 		public function editar($rg, $id_instituicao, $id_estado, $nome, $email, $permissao, $ativo, $senha){
@@ -59,9 +78,9 @@
 
 		//valida a senha inserida pelo usuario no momento do login
 		public function validaSenha($rg, $senha){
-			sqlBuscaSenha = "SELECT senha FROM usuario WHERE rg = $rg"
+			$sqlBuscaSenha = "SELECT senha FROM usuario WHERE rg = $rg";
 
-			resultado = mysql_query(sqlBuscaSenha);
+			$resultado = mysql_query($sqlBuscaSenha);
 
 			if (resultado > 0) {
 				return true;
@@ -88,16 +107,92 @@
 			return $resultado;
 		}
 
-		public function excluir($rg){
-			$sqlExcluir = "DELETE FROM usuario WHERE rg = {$rg}";
-
+		public function excluirUsuario($idUsuario){
+			$sqlExcluir = "DELETE FROM usuario WHERE id = {$idUsuario}";
 			$resultado = mysql_query($sqlExcluir);
+		}
 
-			$numeroDeLinhasAfetadas = mysql_affected_rows();
+		public function listarUsuarios(){
+			$sqlBuscaUsuarios = "SELECT id, 
+										rg, 
+										id_patente, 
+										id_instituicao, 
+										nome,
+										email, 
+										senha, 
+										permissao, 
+										ativo 
+									from projetointegradorgeo.usuario";
+			$resultadoBuscaUsuarios = mysql_query($sqlBuscaUsuarios);
 
-			return $numeroDeLinhasAfetadas;
+			$usuarios = array();
 
+			while ($row = mysql_fetch_assoc($resultadoBuscaUsuarios)) {
+				$usuarios[] = $row;
+			}
+
+			return $usuarios;		
+		}
+
+		public function listaInstituicao(){
+			$buscaInstutiocao = "select id, nome from instituicao";
+			$resultado =mysql_query($buscaInstutiocao);
+
+			$retorno = array();
+
+			while ($row = mysql_fetch_assoc($resultado)) {
+				$retorno[] = $row;
+			}
+
+			return $retorno;
+		}
+		
+		public function listaPatente(){
+			$buscaPatente = "select id, nome from patente";
+			$resultado =mysql_query($buscaPatente);
+
+			$retorno = array();
+
+			while ($row = mysql_fetch_assoc($resultado)) {
+				$retorno[] = $row;
+			}
+
+			return $retorno;
+		}
+
+		public function listaEstado(){
+			$buscaEstados = "select sigla, nome from estado;";
+			$resultado =mysql_query($buscaEstados);
+
+			$retorno = array();
+
+			while ($row = mysql_fetch_assoc($resultado)) {
+				$retorno[] = $row;
+			}
+
+			return $retorno;
+		}	
+	
+
+		public function recuperaUsuario($idUsuario){
+			$sqlBuscaUsuarios = "SELECT id, 
+										rg, 
+										id_patente, 
+										id_instituicao, 
+										nome,
+										email, 
+										senha, 
+										permissao, 
+										ativo 
+									from projetointegradorgeo.usuario where id = {$idUsuario}";
+			$resultado = mysql_query($sqlBuscaUsuarios);
+			$dados = mysql_fetch_assoc($resultado);
+			return $dados;
 		}
 	}
+
+
+
+
 
 ?>
