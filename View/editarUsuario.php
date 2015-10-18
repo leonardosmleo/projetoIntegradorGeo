@@ -71,7 +71,8 @@
 
             <div class="row">
                 <div class="col-md-3">
-                    
+                    <label>Distintivo:</label>
+                    <input type="text" class="form-control" name="distintivo" id="nome" placeholder="Distintivo"/>
                 </div>
 
                 <div class="col-md-3">
