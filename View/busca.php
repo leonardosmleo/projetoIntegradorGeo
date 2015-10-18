@@ -131,7 +131,7 @@ function initialize() {
 	
     var mapProp = { 
         center: myCenter, 
-        zoom: 13, 
+        zoom: 14, 
 		mapTypeControl: false,
         streetViewControl: false,
         panControl: false,
@@ -154,13 +154,17 @@ function createMarker(lat, lng) {
 	
     marker.setMap(map);
 	markers.push(marker);
-	
-	
+		
+		var circuloInicial = 1300;
+	if($('#rad').val() != 0){
+		 circuloInicial = parseInt($('#rad').val() );
+	}
+
 	var circle = new google.maps.Circle({
             map: map,
             clickable: false,
             // metres
-            radius: 1000,
+            radius:circuloInicial,
             fillColor: '#4fc1e9',
             fillOpacity: .06,
             strokeColor: '#313131',
@@ -169,6 +173,23 @@ function createMarker(lat, lng) {
         });
 	  
 	circle.bindTo('center', marker, 'position');
+	
+	var lineSymbol = {
+		path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
+		scale: 3,
+	  };
+
+
+	 
+	  var line = new google.maps.Polyline({
+		 
+		path: [{lat: -23.4388435, lng:-51.9169781 }, {lat: -23.4488435 , lng: -51.9119781}],
+		icons: [{
+		  icon: lineSymbol,
+		  offset: '100%'
+		}],
+		map: map
+	  });
 	 
 	var nome = document.getElementById("nome").value;
 	var infowindow = new google.maps.InfoWindow({
