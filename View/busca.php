@@ -72,7 +72,7 @@ include 'menu.php';
 						<div class="row">
 							<div class="col-md-6">
 								<label for="exampleInputEmail1">Azimute</label>
-								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Azimute">
+								<input type="text" class="form-control" id="azimute" value="45">
 							</div>
 							<div class="col-md-6">
 								<label for="exampleInputEmail1">Raio (m)</label>
@@ -118,6 +118,7 @@ include 'menu.php';
 <script>
 
 var map;
+var i = 0;
 var markers = new Array();
 //var rad_tam = parseFloat(document.getElementById("rad").value);
 
@@ -138,8 +139,11 @@ function initialize() {
         mapTypeId: google.maps.MapTypeId.ROADMAP 
     };
     map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
-	createMarker(lat, lng);
+	
+	if(i >0){
+		createMarker(lat, lng);
+	}
+	
 }
 
 function createMarker(lat, lng) {
@@ -155,7 +159,7 @@ function createMarker(lat, lng) {
     marker.setMap(map);
 	markers.push(marker);
 		
-		var circuloInicial = 1300;
+		var circuloInicial = 0;
 	if($('#rad').val() != 0){
 		 circuloInicial = parseInt($('#rad').val() );
 	}
@@ -174,16 +178,62 @@ function createMarker(lat, lng) {
 	  
 	circle.bindTo('center', marker, 'position');
 	
+	  polyLat = parseFloat($('#lat').val());
+	  polyLng = parseFloat($('#lng').val());
+	  raio = parseInt($('#rad').val());
+	  azimute = parseInt($('#azimute').val());
+	  
+	  if(raio < 10){
+		   var calcDirecao = (0.0005/raio);
+	  }
+	  if(raio > 10 && raio < 500){
+		   var calcDirecao = (0.6/raio);
+	  }
+	  if(raio > 500 && raio < 2000){
+		  var calcDirecao = (5/raio)
+	  }
+	  if(raio > 2000 && raio < 5000){
+		  var calcDirecao = 50/raio;
+	  }
+	  if(raio > 5000 && raio < 10000){
+		  var calcDirecao = 400/raio;
+	  }
+	  
+	 
+	  var calcLat;
+	  var calcLng;
+	  
+	  if(azimute == 90){
+		calcLat = calcDirecao;
+		calcLng = 0;
+	  }
+	  if(azimute == 45){
+		  calcLat = calcDirecao;
+		  calcLng = calcDirecao;
+	  }
+	  if(azimute == 0 || 360){
+		  calcLat = 0;
+		  calcLng = calcDirecao;
+	  }
+	  if(azimute == 180){
+		  calcLng = -calcDirecao;
+		  calcLat =0;
+	  }
+	  
+	  
+	  
 	var lineSymbol = {
 		path: google.maps.SymbolPath.FORWARD_OPEN_ARROW,
 		scale: 3,
 	  };
 
 
+	
 	 
 	  var line = new google.maps.Polyline({
+		  
 		 
-		path: [{lat: -23.4388435, lng:-51.9169781 }, {lat: -23.4488435 , lng: -51.9119781}],
+		path: [{lat: polyLat, lng: polyLng }, {lat: polyLat+calcLat, lng: polyLng+calcLng}],
 		icons: [{
 		  icon: lineSymbol,
 		  offset: '100%'
@@ -213,7 +263,7 @@ function deleteMarkers() {
 function update() {
     lat=document.getElementById('lat').value;
     lng=document.getElementById('lng').value;
-	
+	i= i+1;
 	createMarker(lat, lng);
     return false;
 }
