@@ -40,42 +40,11 @@ include 'menu.php';
 -->
 <div id="googleMap" style="width: 100%;height:85%;position: absolute"></div> 
 
-<!--<div id="map" >
 
-</div>-->
-
-
-		
-<!--
-		<script>
-
-		var map;
-		function initMap() {
-		  var myLatLng = {lat: -25.363, lng: 131.044};
-
-		  var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 4,
-			center: myLatLng
-		  });
-
-		  var marker = new google.maps.Marker({
-			position: myLatLng,
-			map: map,
-			title: 'Hello World!'
-		  });
-		}
-		</script>	
-			
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ7s4FRHQOClsYvGJi9tw4EWP16RYNwYk&callback=initMap" async defer>
-			</script> -->
-			
-
-
-
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" style="position: absolute; width: 250px; margin: 1% auto; left: 1%">
-  <i class="fa fa-map-marker"></i> Procurar ERB's
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="position: absolute; width: 250px; margin: 1% auto; left: 1%">
+ <i class="fa fa-map-marker"></i> Procurar ERB's
 </button>
-<div class="collapse in" id="collapseExample2">
+<div class="collapse in" id="collapseExample">
   <div class="well">
    <div class="modal-dialog" style="position: absolute; width: 450px; margin: 3% auto; left: 1%">
                   <div class="modal-content">
@@ -122,7 +91,7 @@ include 'menu.php';
                     </div>
                     <div class="modal-footer">                   
                       
-                      
+                      <button type="button" class="btn btn-default" onclick="deleteMarkers()"> <i class="fa fa-trash"></i> Limpar ERB's</button>
                       <button style="margin-left: 1%; float: right"  type="button" class="btn btn-success"  id="submitBtn" value="Adicionar"><i class="fa fa-plus"></i> Inserir ERB</button>
                     </div>
 					</form>
@@ -132,13 +101,15 @@ include 'menu.php';
 </div>
 
 
-<div class="modal-dialog" style="position: absolute; width: 400px; margin: 28% auto; right: 5%">
+<div class="modal-dialog" style="position: absolute; width: 380px; margin: 28% auto; right: 5%">
     <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.38)">    
       
       <div class="modal-footer">
-					<button type="button" class="btn btn-danger"><i class="fa fa-map"></i> Rotas de fuga</button>
-					  <button type="button" class="btn btn-default" onclick="deleteMarkers()"><i class="fa fa-map"></i> Limpar ERB's</button>
-                      <button style="margin-left: 1%; float: right"  type="button" class="btn btn-success"  id="submitBtn" value="Salvar"><i class="fa fa-plus"></i> Salvar Mapa</button>
+					<a href="../View/relatoriosPrint.php"><button type="button" class="btn btn-primary"><i class="fa fa-file-text"></i> Relatórios</button></a>
+					
+					<button type="button" class="btn btn-danger"><i class="fa fa-road"></i> Rotas de fuga</button>
+					  
+                      <button style="margin-left: 8%; float: right; width: 20%"  type="button" class="btn btn-success"  id="submitBtn" value="Salvar"><i class="fa fa-floppy-o fa-lg"></i></button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
