@@ -36,8 +36,14 @@
                 <label>E-mail</label>
                 <input type="text" class="form-control" name="email" placeholder="Digite o e-mail cadastrado no sistema">
                 <br>
-                <a href="login.php"><button type="button" class="btn btn-primary col-xs-6" >Voltar</button>
-                <a href="login.php"><button type="subimit" class="btn btn-primary col-xs-6">Enviar</button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="login.php"><button type="button" class="btn btn-primary col-md-12" >Voltar</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="login.php"><button type="subimit" class="btn btn-primary col-md-12">Enviar</button>
+                    </div>
+                </div>
               </div>
             </div>
         </div>
