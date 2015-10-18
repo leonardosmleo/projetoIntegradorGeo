@@ -50,12 +50,38 @@
                         <a href="esqueciMinhaSenha.php"><button type="subimit" class="senha btn btn-primary col-md-12">Esqueci minha senha</button></a>
                     </div>
                     <div class="col-md-6">
-                        <a href="inicio.php"><button type="subimit" class="entrar btn btn-primary col-md-12">Entrar</button></a>
+                        <button type="subimit" class="entrar btn btn-primary col-md-12">Entrar</button></a>
                     </div>
                 </div>
               </div>
             </div>
         </div>
+
+    <script type="text/javascript">
+
+        function validarLogin(rg, senha){
+            $.ajax({
+                url: "../Controller/controllerUsuario.php",
+                type: 'POST',
+                dataType: 'json',
+                data: { rg: rg, 
+                        senha: senha,
+                        action:'validarLogin'},
+                success: function(retorno){
+                  if(retorno == true){
+                    location.href('inicio.php');
+                  } else {
+                    alert('Usuário e/ou senha incorreto.')
+                  } 
+                },
+                error: function(msg){
+                    alert("Falha ao buscar dados");
+                }
+            });
+        }
+
+    </script>
+
     </body>
 </html>
 

@@ -47,6 +47,28 @@
               </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            function enviaSenhaPorEmail(email){
+                $.ajax({
+                    url: "../Controller/controllerUsuario.php",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { email:email, 
+                            action:'enviarEmailSolicitacaoDeSenha'},
+                    success: function(msg){
+                        if(msg == true){
+                            alert('E-mail enviado com sucesso!');
+                        } else {
+                            alert('E-mail não cadastrado em nosso sistema. Verifique com o administrador do sistema.'); 
+                        }
+                    },
+                    error: function(msg){
+                        alert('Falha no envio de dados');
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
 
