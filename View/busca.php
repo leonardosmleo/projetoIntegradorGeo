@@ -41,13 +41,13 @@ include 'menu.php';
 <div id="googleMap" style="width: 100%;height:85%;position: absolute"></div> 
 
 
-<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="position: absolute; width: 250px; margin: 1% auto; left: 1%">
- <i class="fa fa-map-marker"></i> Procurar ERB's
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="position: absolute; width: 38px; margin: 1% auto; left: 0%; border-radius: 1px; border-top-right-radius: 5px;  border-bottom-right-radius: 5px; border: none">
+ <i class="fa fa-map-marker fa-lg"></i>
 </button>
 <div class="collapse in" id="collapseExample">
-  <div class="well">
-   <div class="modal-dialog" style="position: absolute; width: 450px; margin: 3% auto; left: 1%">
-                  <div class="modal-content">
+  <div class="well" style="background-color: rgba(255, 255, 255, 0); border: none">
+   <div class="modal-dialog" style="position: absolute; width: 290px; margin: 2% auto; left: 0%">
+                  <div class="modal-content" style="border-top-left-radius: 0px;">
 				  <form name="myForm" action="" method="post">
                     <div class="modal-header">                      
                       
@@ -81,7 +81,7 @@ include 'menu.php';
 						</div>
 						<hr>
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<label for="exampleInputEmail1">Nome da ERB</label>
 								<input type="text" class="form-control" id="nome" placeholder="Nome da ERB" required>
 							</div>							
@@ -91,7 +91,7 @@ include 'menu.php';
                     </div>
                     <div class="modal-footer">                   
                       
-                      <button type="button" class="btn btn-default" onclick="deleteMarkers()"> <i class="fa fa-trash"></i> Limpar ERB's</button>
+                      <button type="button" class="btn btn-default" style="float: left" onclick="deleteMarkers()"> <i class="fa fa-trash"></i> Limpar ERB's</button>
                       <button style="margin-left: 1%; float: right"  type="button" class="btn btn-success"  id="submitBtn" value="Adicionar"><i class="fa fa-plus"></i> Inserir ERB</button>
                     </div>
 					</form>
@@ -101,8 +101,8 @@ include 'menu.php';
 </div>
 
 
-<div class="modal-dialog" style="position: absolute; width: 280px; margin: 28% auto; right: 5%">
-    <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.38)">    
+<div class="modal-dialog" style="position: absolute; width: 235px; right: 5%; top: 75%; bottom: 90%">
+    <div class="modal-content">    
       
       <div class="modal-footer">
 				
@@ -162,10 +162,10 @@ function createMarker(lat, lng) {
             // metres
             radius: 1000,
             fillColor: '#4fc1e9',
-            fillOpacity: .6,
+            fillOpacity: .06,
             strokeColor: '#313131',
-            strokeOpacity: .4, 
-            strokeWeight: .8
+            strokeOpacity: .9, 
+            strokeWeight: .9
         });
 	  
 	circle.bindTo('center', marker, 'position');
