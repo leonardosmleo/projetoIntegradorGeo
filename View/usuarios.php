@@ -1,8 +1,5 @@
 <?php
   include 'menu.php';
-    include '../Model/Usuario.php';
-    $usuarioObj = new Usuario();
-    $usuarios = $usuarioObj->listar();
 ?>
 
 <body>
@@ -19,22 +16,21 @@
                 <table id="tabelaDeUsuarios" class="table table-striped table-bordered" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
                     <thead>
                         <tr role="row">
-                            <th style="width:  5%;">Status</th>
-                            <th style="width: 5%;">Código</th>
-                            <th style="width: 10%;">Patente</th>
-                            <th style="width: 45%;">Nome</th>
-                            <th style="width: 20%;">E-mail</th>
-                            <th style="width: 5%;">Ativo</th>
-                            <th style="width: 10%;">Opções</th>
-
-                            
+                            <th style="width:  5%;">Status  </th>
+                            <th style="width:  5%;">Código  </th>
+                            <th style="width: 10%;">Patente </th>
+                            <th style="width: 10%;">Rg      </th>
+                            <th style="width: 35%;">Nome    </th>
+                            <th style="width: 20%;">E-mail  </th>
+                            <th style="width:  5%;">Ativo   </th>
+                            <th style="width: 10%;">Opções  </th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         //Verifica se há usuários cadastros
-                        if(mysql_num_rows($usuarios)>0){
-                          for($l=0; $l<mysql_num_rows($usuarios); $l++){
+                        /*if(mysql_num_rows($usuarios)>0){
+                          for($l=0; $l<mysql_num_rows($usuarios); $l++){*/
                         ?>
                         <tr role="row" class="odd" align="center">
                             <td><i class="glyphicon glyphicon-user" ></i></td>
@@ -54,10 +50,7 @@
                         </tr>
                         <?php 
                           }//Fim do Foreach
-                        }else{ //Não há usuários cadastros
-                        ?>
-                        Não encontramos nenhum registro cadastado em nosso sistema.
-                        <?php } ?>
+                        }?>
                     </tbody>
                 </table>
             </div>
@@ -69,17 +62,20 @@
 <script type="text/javascript">
 
 function excluirUsuario(idUsuario){
-    //codigo de exclusao aqui
     var name = confirm("Deseja realmente excluir este usuário?");
     if(name==true){
       $.ajax({
       url: '../Controller/controllerUsuario.php',
       type: 'POST',
       dataType: 'json',
-      data: {idUsuario:idUsuario,
-           action:'excluir'},
+      data: { sidUsuario:idUsuario,
+              action:'excluir'},
       success: function(retorno){
-        alert(retorno.msg);
+        if(retorno > 0){
+          window.location.reload();
+        } else {
+          alert('Falha ao excluir dados.');
+        }
       },
       error: function(){
         alert(retorno.msg);
@@ -87,29 +83,24 @@ function excluirUsuario(idUsuario){
     });
     }
 }
-  
-
-    function buscarUsuario(idUsuario){
-
-    $.ajax({
-      url: 'Controller/controllerUsuario.php',
-      type: 'POST',
-      dataType: 'json',
-      data: {idUsuario:idUsuario,
-           action:'buscar'},
-      success: function(retorno){
-        $('#action').val('alterar');
-        $('#idUsuario').val(retorno.idUsuario);
-        $('#nomeUsuario').val(retorno.nome);
-        $('#cadastroProfessor').modal();
-      },
-      error: function(){
-        alert("Falha ao buscar dados!");
-      }
-    });
-  }
-
-
+function buscarUsuario(idUsuario){
+  $.ajax({
+    url: 'Controller/controllerUsuario.php',
+    type: 'POST',
+    dataType: 'json',
+    data: {idUsuario:idUsuario,
+         action:'buscar'},
+    success: function(retorno){
+      $('#action').val('alterar');
+      $('#idUsuario').val(retorno.idUsuario);
+      $('#nomeUsuario').val(retorno.nome);
+      $('#cadastroProfessor').modal();
+    },
+    error: function(){
+      alert("Falha ao buscar dados!");
+    }
+  });
+}
 
     $(document).ready( function () {
         $('#tabelaDeUsuarios').DataTable(
@@ -138,7 +129,3 @@ function excluirUsuario(idUsuario){
 <?php
     include 'inferior.php';
 ?>
-
-  
-  
-  

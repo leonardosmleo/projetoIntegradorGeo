@@ -12,7 +12,13 @@ switch ($action) {
 		break;
 
 	case 'excluirUsuario'
-	
+			
+		$rg = $_POST['rg'];
+
+		$retornoExclusao = $usuarioObj->excluir($rg);
+
+		echo json_encode($retornoExclusao);
+
 		break;
 
 	case 'recuperaUsuario':
