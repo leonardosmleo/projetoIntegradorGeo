@@ -36,11 +36,39 @@
                 <label>E-mail</label>
                 <input type="text" class="form-control" name="email" placeholder="Digite o e-mail cadastrado no sistema">
                 <br>
-                <a href="login.php"><button type="button" class="btn btn-primary col-xs-6" >Voltar</button>
-                <a href="login.php"><button type="subimit" class="btn btn-primary col-xs-6">Enviar</button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="login.php"><button type="button" class="btn btn-primary col-md-12" >Voltar</button>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="login.php"><button type="subimit" class="btn btn-primary col-md-12">Enviar</button>
+                    </div>
+                </div>
               </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            function enviaSenhaPorEmail(email){
+                $.ajax({
+                    url: "../Controller/controllerUsuario.php",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { email:email, 
+                            action:'enviarEmailSolicitacaoDeSenha'},
+                    success: function(msg){
+                        if(msg == true){
+                            alert('E-mail enviado com sucesso!');
+                        } else {
+                            alert('E-mail não cadastrado em nosso sistema. Verifique com o administrador do sistema.'); 
+                        }
+                    },
+                    error: function(msg){
+                        alert('Falha no envio de dados');
+                    }
+                });
+            }
+        </script>
     </body>
 </html>
 

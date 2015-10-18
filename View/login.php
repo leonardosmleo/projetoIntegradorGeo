@@ -29,37 +29,59 @@
                 margin-left: 0px;
             }
 
-/*            .senha{
-                margin-right: 1px;
-            }*/
         </style>
     </head>
-<body >
+    <body>
+        <div class="container" id="login">
+            <div class="panel panel-primary">
+              	<div class="panel-heading" style="text-align: center" >
+                 	<img style="max-width: 15%" src="../Libs/img/globo.png">
+                 	<h3>VZON</h3>
+                	<h4>Seja bem vindo!</h4>
+                </div>
+              <div class="panel-body">
+                <label>Usuário</label>
+                <input type="text" class="form-control" name="rg" required>
+                <label>Senha</label>
+                <input type="password" class="form-control" name="senha" required>
+                <br>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="esqueciMinhaSenha.php"><button type="subimit" class="senha btn btn-primary col-md-12">Esqueci minha senha</button></a>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="subimit" class="entrar btn btn-primary col-md-12">Entrar</button></a>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
 
-<div class="container" id="login">
-    <div class="panel panel-primary">
-      	<div class="panel-heading" style="text-align: center" >
-         	<img style="max-width: 15%" src="../Libs/img/globo.png">
-         	<h3>VZON</h3>
-        	<h4>Seja bem vindo!</h4>
-        </div>
-      <div class="panel-body">
-        <label>Usuário</label>
-        <input type="text" class="form-control" name="idUsuario" required>
-        <label>Senha</label>
-        <input type="password" class="form-control" name="senha" required>
-        <br>
-        <div>
-            <div>
-                <a href="esqueciMinhaSenha.php"><button type="subimit" class="senha btn btn-primary col-xs-6">Esqueci minha senha</button></a>
-            </div>
-            <div>
-                <a href="inicio.php"><button type="subimit" class="entrar btn btn-primary col-xs-6">Entrar</button></a>
-            </div>
-        </div>
-      </div>
-    </div>
-</div>
+    <script type="text/javascript">
+
+        function validarLogin(rg, senha){
+            $.ajax({
+                url: "../Controller/controllerUsuario.php",
+                type: 'POST',
+                dataType: 'json',
+                data: { rg: rg, 
+                        senha: senha,
+                        action:'validarLogin'},
+                success: function(retorno){
+                  if(retorno == true){
+                    location.href('inicio.php');
+                  } else {
+                    alert('Usuário e/ou senha incorreto.')
+                  } 
+                },
+                error: function(msg){
+                    alert("Falha ao buscar dados");
+                }
+            });
+        }
+
+    </script>
+
     </body>
 </html>
 
