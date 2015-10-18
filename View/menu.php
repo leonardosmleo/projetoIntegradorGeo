@@ -87,6 +87,7 @@ Projeto integrador - sistema de geolocalização de celulares
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
 				<ul class="nav navbar-nav">
 					<li><a href="../View/inicio.php">Home</a></li>
+					<li><a href="../View/relatoriosPrint.php">Relatórios</a></li>	
 					<li><a href="../View/busca.php">Busca</a></li>					
 					<li><a href="../View/usuarios.php">Usuários</a></li>
 				</ul>

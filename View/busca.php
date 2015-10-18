@@ -101,11 +101,11 @@ include 'menu.php';
 </div>
 
 
-<div class="modal-dialog" style="position: absolute; width: 380px; margin: 28% auto; right: 5%">
+<div class="modal-dialog" style="position: absolute; width: 280px; margin: 28% auto; right: 5%">
     <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.38)">    
       
       <div class="modal-footer">
-					<a href="../View/relatoriosPrint.php"><button type="button" class="btn btn-primary"><i class="fa fa-file-text"></i> Relatórios</button></a>
+				
 					
 					<button type="button" class="btn btn-danger"><i class="fa fa-road"></i> Rotas de fuga</button>
 					  
