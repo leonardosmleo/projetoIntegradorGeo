@@ -256,8 +256,7 @@ function createMarker(lat, lng) {
 
 
 function deleteMarkers() {
-  clearMarkers();
-  markers = [];
+    location.reload();
 }
 
 function update() {
