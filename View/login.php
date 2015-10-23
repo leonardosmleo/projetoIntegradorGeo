@@ -8,7 +8,7 @@
 
 
         <link rel="stylesheet" href="../Libs/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../Libs/bootflat/css/bootflat.css">
+        <!-- <link rel="stylesheet" href="../Libs/bootflat/css/bootflat.css"> -->
         <!-- <link rel="stylesheet" href="../Libs/css/logo-nav.css"> -->
         <link rel="stylesheet" href="../Libs/css/font-awesome.min.css">
 
@@ -41,16 +41,16 @@
                 </div>
               <div class="panel-body">
                 <label>Usuário</label>
-                <input type="text" class="form-control" name="rg" required>
+                <input type="text" class="form-control" name="rg" id="rg" required>
                 <label>Senha</label>
-                <input type="password" class="form-control" name="senha" required>
+                <input type="password" class="form-control" name="senha" id="senha" required>
                 <br>
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="esqueciMinhaSenha.php"><button type="subimit" class="senha btn btn-primary col-md-12">Esqueci minha senha</button></a>
+                        <a href="esqueciMinhaSenha.php"><button type="subimit" class="senha btn btn-primary col-md-12" onclick="validarLogin()">Esqueci minha senha</button></a>
                     </div>
                     <div class="col-md-6">
-                        <button type="subimit" class="entrar btn btn-primary col-md-12">Entrar</button></a>
+                        <button type="subimit" class="entrar btn btn-primary col-md-12" onclick="validarLogin(rg, senha)">Entrar</button></a>
                     </div>
                 </div>
               </div>
@@ -59,17 +59,22 @@
 
     <script type="text/javascript">
 
-        function validarLogin(rg, senha){
+        function validarLogin(){
+
+            var rg = $("#rg").val();
+            var senha = $("#senha").val();
+
             $.ajax({
                 url: "../Controller/controllerUsuario.php",
                 type: 'POST',
                 dataType: 'json',
-                data: { rg: rg, 
-                        senha: senha,
+                data: { rg:rg, 
+                        senha:senha,
                         action:'validarLogin'},
+
                 success: function(retorno){
                   if(retorno == true){
-                    location.href('inicio.php');
+                    window.location = 'inicio.php';
                   } else {
                     alert('Usuário e/ou senha incorreto.')
                   } 

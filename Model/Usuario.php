@@ -76,13 +76,14 @@
 			}
 		}
 
-		//valida a senha inserida pelo usuario no momento do login
-		public function validaSenha($rg, $senha){
-			$sqlBuscaSenha = "SELECT senha FROM usuario WHERE rg = $rg";
+		//valida a senha e o rg inserido pelo usuario no momento do login
+		public function validarLogin($rg, $senha){
+			$sqlBuscaSelect = "SELECT senha FROM usuario WHERE senha = $senha and rg = $rg";
+			$resultadoSelect = mysql_query($sqlBuscaSelect);
 
-			$resultado = mysql_query($sqlBuscaSenha);
+			$numeroDeLinhasRetornadas = mysql_affected_rows();
 
-			if (resultado > 0) {
+			if ($numeroDeLinhasRetornadas > 0) {
 				return true;
 			} else {
 				return false;

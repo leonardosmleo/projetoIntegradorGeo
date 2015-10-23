@@ -55,13 +55,19 @@ switch ($action) {
 
 	case 'excluirUsuario':
 			$idUsuario = $_REQUEST['idUsuario'];
-		$retornoExclusao = $usuario->excluirUsuario($idUsuario);
-		$listaDeUsuario = $usuario->listarUsuarios();
-		include ("../View/usuarios.php");
+			$retornoExclusao = $usuario->excluirUsuario($idUsuario);
+			$listaDeUsuario = $usuario->listarUsuarios();
+			include ("../View/usuarios.php");
 		break;
 
-	case 'recuperaUsuario':
-		# code...
+	case 'validarLogin':
+			$rg = $_REQUEST['rg'];
+			$senha = $_REQUEST['senha'];
+
+			$retorno = $usuario->validarLogin($rg, $senha);
+
+			echo json_encode($retorno);
+			
 		break;
 
 	case 'listarUsuarios':
