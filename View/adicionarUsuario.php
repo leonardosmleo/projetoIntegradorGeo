@@ -88,9 +88,14 @@
                     
                 </div>           
             </div>
-
             <div class="row">
-                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    
+                </div>
+                <div class="col-md-3">
+                    <label>IP:</label>
+                    <input type="text" class="form-control" name="ip" value="" id="ip" placeholder="Digite o IP aqui."/>
+                </div>
                 <div class="col-md-3">
                     <label>Administrador:</label>
                     <?php 
@@ -105,18 +110,13 @@
                         }else{
                             $statusAdministrador = "";
                         }
-
-                        
                     ?>
                     <input type="checkbox"  class="" <?=$statusAdministrador?> name="administrador" id="administrador" value="1" />
-                    <BR>
+                    <br>
                     <label>Ativo:</label>
                      <input type="checkbox" class="" <?=$statusAtivo?> name="ativo" id="ativo" value="1" />
-                </div>         
-            </div>  
-
-
-        </div>
+                </div>
+            </div>
         <!--    ###########################################  -->
         <hr>
         <div class="row">
