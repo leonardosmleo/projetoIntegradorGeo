@@ -107,7 +107,7 @@ include 'menu.php';
       <div class="modal-footer">
 				
 					
-					<button type="button" class="btn btn-danger"><i class="fa fa-road"></i> Rotas de fuga</button>
+					<button type="button" class="btn btn-danger" onclick="rotasDeFuga()"><i class="fa fa-road"></i> Rotas de fuga</button>
 					  
                       <button style="margin-left: 8%; float: right; width: 20%"  type="button" class="btn btn-success"  id="submitBtn" value="Salvar"><i class="fa fa-floppy-o fa-lg"></i></button>
       </div>
@@ -149,6 +149,11 @@ function initialize() {
 	
 	
 	
+}
+
+function rotasDeFuga(){
+	var transitLayer = new google.maps.TransitLayer();
+	transitLayer.setMap(map);	
 }
 
 function createMarker(lat, lng) {
@@ -275,14 +280,14 @@ function deleteMarkers() {
     location.reload();
 }
 
+
+
 function update() {
     lat=document.getElementById('lat').value;
     lng=document.getElementById('lng').value;
 	i= i+1;
-	createMarker(lat, lng);
+	createMarker(lat, lng);	
 	
-	var transitLayer = new google.maps.TransitLayer();
-	transitLayer.setMap(map);
 	
     return false;
 }
