@@ -58,13 +58,13 @@ include 'menu.php';
 								<div class="col-md-6">
 								  
 									<label for="exampleInputEmail1">Longitude</label>
-									<input class="form-control" placeholder="Longitude" type="text" id="lng" name="lng" value="-51.9169781" > <!-- -->
+									<input class="form-control" placeholder="Longitude" type="text" id="lng" name="lng" value="-0.115871" > <!-- -->
 								  
 							  </div>
 							  <div class="col-md-6">
 							   
 									<label for="exampleInputEmail1">Latitude</label>
-									<input class="form-control" placeholder="Latitude" type="text" id="lat" name="lat" value="-23.4388435"> <!--  -->
+									<input class="form-control" placeholder="Latitude" type="text" id="lat" name="lat" value="51.501904"> <!--  -->
 								  
 								 </div>
 						  </div>
@@ -140,6 +140,9 @@ function initialize() {
     };
     map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
 	
+	var transitLayer = new google.maps.TransitLayer();
+	transitLayer.setMap(map);
+	
 	if(i >0){
 		createMarker(lat, lng);
 	}
@@ -180,7 +183,7 @@ function createMarker(lat, lng) {
             fillOpacity: .06,
             strokeColor: '#313131',
             strokeOpacity: .9, 
-            strokeWeight: .9
+            strokeWeight: 2
         });
 	  
 	circle.bindTo('center', marker, 'position');
