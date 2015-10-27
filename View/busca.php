@@ -140,8 +140,7 @@ function initialize() {
     };
     map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
 	
-	var transitLayer = new google.maps.TransitLayer();
-	transitLayer.setMap(map);
+	
 	
 	if(i >0){
 		createMarker(lat, lng);
@@ -281,6 +280,9 @@ function update() {
     lng=document.getElementById('lng').value;
 	i= i+1;
 	createMarker(lat, lng);
+	
+	var transitLayer = new google.maps.TransitLayer();
+	transitLayer.setMap(map);
 	
     return false;
 }
