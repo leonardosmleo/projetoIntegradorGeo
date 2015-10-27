@@ -152,8 +152,8 @@ function initialize() {
 }
 
 function rotasDeFuga(){
-	var transitLayer = new google.maps.TransitLayer();
-	transitLayer.setMap(map);	
+	var trafficLayer = new google.maps.TrafficLayer();
+  trafficLayer.setMap(map);
 }
 
 function createMarker(lat, lng) {
