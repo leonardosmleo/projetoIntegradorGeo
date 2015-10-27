@@ -144,6 +144,9 @@ function initialize() {
 		createMarker(lat, lng);
 	}
 	
+	
+	
+	
 }
 
 function createMarker(lat, lng) {
@@ -152,10 +155,14 @@ function createMarker(lat, lng) {
 	var image = '../Libs/img/antena.png';
 	var marker = new google.maps.Marker({ 
 		position:myCenter, 
+		
 		animation:google.maps.Animation.DROP,
 		icon: image
 	});
 	
+	
+	 map.panTo(marker.getPosition());
+	map.setCenter(marker.getPosition());
     marker.setMap(map);
 	markers.push(marker);
 		
@@ -249,6 +256,13 @@ function createMarker(lat, lng) {
 	  marker.addListener('click', function() {
 		infowindow.open(map, marker);
 	  });
+	  
+	  
+	
+	  
+	  
+	  
+	  
 }
 	  
 
@@ -264,6 +278,7 @@ function update() {
     lng=document.getElementById('lng').value;
 	i= i+1;
 	createMarker(lat, lng);
+	
     return false;
 }
 document.getElementById('submitBtn').addEventListener('click', update);
