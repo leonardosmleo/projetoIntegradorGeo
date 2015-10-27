@@ -78,12 +78,17 @@
 
 		//valida a senha e o rg inserido pelo usuario no momento do login
 		public function validarLogin($rg, $senha){
-			$sqlBuscaSelect = "SELECT senha FROM usuario WHERE senha = $senha and rg = $rg";
+			$sqlBuscaSelect = "SELECT nome FROM usuario WHERE senha = $senha and rg = $rg";
 			$resultadoSelect = mysql_query($sqlBuscaSelect);
 
 			$numeroDeLinhasRetornadas = mysql_affected_rows();
 
 			if ($numeroDeLinhasRetornadas > 0) {
+				$retornaNome = mysql_fetch_assoc($resultadoSelect);
+
+				session_start();
+				$_SESSION['nomeUsuario'] = $retornaNome['nome'];
+
 				return true;
 			} else {
 				return false;

@@ -72,6 +72,10 @@ Projeto integrador - sistema de geolocalização de celulares
 
 	</style>
 
+<?php 
+	session_start();
+?>
+
 	<nav class="navbar navbar-inverse" role="navigation" id="body">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -94,7 +98,7 @@ Projeto integrador - sistema de geolocalização de celulares
 
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="../View/login.php">José da Silva <i style="margin-left: 5px" class="fa fa-sign-out"></i></a>
+						<a href="../View/login.php"><?=$_SESSION['nomeUsuario'];?><i style="margin-left: 5px" class="fa fa-sign-out"></i></a>
 					</li>					
 				</ul>
 			</div><!-- /.navbar-collapse -->
