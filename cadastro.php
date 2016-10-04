@@ -43,8 +43,6 @@ Projeto integrador - sistema de geolocaliza��o de celulares
 
                 </div>
             </div>    
-
-
             <div class="row">
                 <div class=" col-md-3">
                     <!-- Em branco -->
