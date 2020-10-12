@@ -3,7 +3,7 @@
 $action = (isset($_REQUEST['id'])) ? $_REQUEST['id'] : "";
 //include '../Model/Usuario.php';
 //$usuario = new Usuario();
-
+//função id
 function($id){
 	$im = imagegrabscreen();
 	imagejpeg($im, "imagem.jpeg");
