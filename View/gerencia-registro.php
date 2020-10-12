@@ -55,10 +55,4 @@
 		  </TABLE>
 		  <BR><A href="inserir.php">Clique aqui para inserir um novo registro.</A>
 		</HTML>
-
-
-
-
-
-
 	?>
